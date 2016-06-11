@@ -1,22 +1,35 @@
-var http = require("http")
+var request = require("request")
 
-module.exports = function (url, fn, error_fn) {
-  try {
-    var request = http.get(url, function (response) {
-      var buffer = ""
-      var data
-      var route
-
-      response.on("data", function (chunk) {
-        buffer += chunk
+module.exports = {
+  get: function (url, fn, error_fn) {
+    request({
+        url: url,
+        method: 'GET',
+        json: true
+      }, function (error, response, body){
+        if (error) {
+          console.error({ ajaxcall: 'get' }, error)
+          error_fn(error)
+        } else {
+          console.debug(body)
+          fn(body, response)
+        }
       })
-
-      response.on("end", function (err) {
-        data = JSON.parse(buffer)
-        fn(data)
+  },
+  post: function (url, data, fn, error_fn) {
+    request({
+        url: url,
+        method: 'POST',
+        json: true,
+        body: data
+      }, function (error, response, body){
+        if (error) {
+          console.error({ ajaxcall: 'post' }, error)
+          error_fn(error)
+        } else {
+          console.debug(body)
+          fn(body, response)
+        }
       })
-    })
-  } catch (err) {
-    error_fn(err)
   }
 }

@@ -9,7 +9,7 @@ module.exports = {
       }, function (error, response, body){
         if (error) {
           console.error({ ajaxcall: 'get' }, error)
-          error_fn(error)
+          if (error_fn) error_fn(error)
         } else {
           console.debug(body)
           fn(body, response)
@@ -25,7 +25,7 @@ module.exports = {
       }, function (error, response, body){
         if (error) {
           console.error({ ajaxcall: 'post' }, error)
-          error_fn(error)
+          if (error_fn) error_fn(error)
         } else {
           console.debug(body)
           fn(body, response)

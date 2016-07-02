@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://github.com/fumasa/yeller-ajaxcall.git"
+    "url": "git+https://8a5b5820b2d648eb126fdc003cbe3a5e1c3bd4d9:x-oauth-basic@github.com/fumasa/yeller-ajaxcall.git"
   },
   "author": "Rafael 'fumasa' Giorgetti <rafael@wakedown.org>",
   "license": "MIT",

@@ -11,7 +11,7 @@ module.exports = {
         console.error({ ajaxcall: 'get' }, error)
         if (errorFn) errorFn(error)
       } else {
-        console.debug(body)
+        console.log(body)
         fn(body, response)
       }
     })
@@ -27,7 +27,7 @@ module.exports = {
         console.error({ ajaxcall: 'post' }, error)
         if (errorFn) errorFn(error)
       } else {
-        console.debug(body)
+        console.log(body)
         fn(body, response)
       }
     })

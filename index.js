@@ -1,6 +1,7 @@
 var request = require('request')
 
 module.exports = {
+  request: request,
   get: function (url, fn, errorFn) {
     request({
       url: url,
